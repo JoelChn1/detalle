@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detrás, un mensaje de Cariño :3</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: #fff;
+      background-image: radial-gradient(rgba(236, 137, 181, 0.3) 1.5px, transparent 1.5px);
+      background-size: 30px 30px;
+      background-position: center;
+    }
+    .container {
+      position: relative;
+      width: 430px;
+      height: 630px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .portada,
+    .decoracion-texto {
+      transition: transform 1s ease, opacity 1s ease;
+    }
+    .portada.caida,
+    .decoracion-texto.caida {
+      transform: translateY(150%) rotate(15deg);
+      opacity: 0;
+    }
+    .portada {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+      z-index: 3;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    .portada img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .carta {
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      border: 1px solid #ddd;
+      padding: 30px 25px 40px;
+      text-align: justify;
+      font-size: 13px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      position: relative;
+      z-index: 1;
+    }
+    .carta::before {
+      content: "✧";
+      display: block;
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #888;
+    }
+    .titulo {
+      text-align: center;
+      font-size: 11px;
+      margin-bottom: 15px;
+      color: #555;
+    }
+    .lazo {
+      position: absolute;
+      top: -25px;
+      right: 20px;
+      width: 60px;
+    }
+    .decoracion-texto {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 20px;
+      color: #ec89b5;
+      font-weight: bold;
+      font-family: 'Comic Sans MS', cursive;
+      z-index: 4;
+      cursor: pointer;
+      text-shadow: 1px 1px 2px #fff;
+    }
+    .boton-reiniciar {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      background-color: #ffb6c1;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-family: 'Comic Sans MS', cursive;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+    .boton-reiniciar.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="carta">
+      <div class="titulo">CON CARIÑO PARA NiÑA CAPRICHOSA <br> 愛してます</div>
+<p>
+  La verdad estoy escribiendo esta carta a las 3 de la mañana. No sé muy bien qué decirte, pero quería escribirte igual. Si te soy sincero, ahora mismo estoy tratando de estar bien conmigo mismo. Hoy intenté hablar con mi padre, pero no pude decir nada… los nervios y el estrés me ganaron.
+</p>
+
+<p>
+  Últimamente el estrés me está consumiendo bastante, pero aun así quiero terminar con todo esto que tengo pendiente. Quiero cerrar esta etapa y poder regresar tranquilo para hacer lo que más me gusta: jugar contigo y con Shirua, molestarlos un rato, ser el mal tercio como siempre y pasar momentos simples que al final terminan siendo los que más se disfrutan.
+</p>
+
+<p>
+  También quiero ver cómo va tu relación, porque al final lo único que realmente quiero es verte feliz. Saber que estás bien, que sonríes y que las cosas te están saliendo como quieres. Eso para mí ya es suficiente.
+</p>
+
+<p>
+  Tal vez no soy muy bueno diciendo estas cosas, y menos a esta hora, pero quería que supieras lo que estaba pasando por mi cabeza esta madrugada.
+</p>
+      <p style="text-align: center; margin-top: 1em;"><em>Atte. JOEL</em></p>
+    </div>
+    <div class="portada" id="portada" onclick="ocultarImagen()" role="button" aria-label="Abrir carta">
+      <img src="caratula.jpg" alt="Imagen portada" />
+    </div>
+    <div class="decoracion-texto" id="decoracion">CARTA PARA TI ROCIO</div>
+    <button class="boton-reiniciar" id="btnReset" onclick="reiniciar()">♡ Reiniciar ♡</button>
+  </div>
+  <script>
+    function ocultarImagen() {
+      document.getElementById('portada').classList.add('caida');
+      document.getElementById('decoracion').classList.add('caida');
+      document.getElementById('btnReset').classList.add('visible');
+    }
+    function reiniciar() {
+      document.getElementById('portada').classList.remove('caida');
+      document.getElementById('decoracion').classList.remove('caida');
+      document.getElementById('btnReset').classList.remove('visible');
+    }
+  </script>
+</body>
+</html>
